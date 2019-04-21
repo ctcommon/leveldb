@@ -35,7 +35,7 @@ class CacheTest {
   static const int kCacheSize = 1000;
   std::vector<int> deleted_keys_;
   std::vector<int> deleted_values_;
-  Cache* cache_;
+  Cache* cache_;  //Cache指针cache_，作为本源文件所有test的基类，其构造函数会先调用，此成员结构初始化为NewLRUCache类型对象，对象大小为kCacheSize
 
   CacheTest() : cache_(NewLRUCache(kCacheSize)) {
     current_ = this;
@@ -71,6 +71,7 @@ class CacheTest {
 CacheTest* CacheTest::current_;
 
 TEST(CacheTest, HitAndMiss) {
+  printf("CacheTest %s\n", __PRETTY_FUNCTION__);  //查看命名空间、类名、函数名
   ASSERT_EQ(-1, Lookup(100));
 
   Insert(100, 101);

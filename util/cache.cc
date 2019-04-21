@@ -400,7 +400,7 @@ class ShardedLRUCache : public Cache {
 }  // end anonymous namespace
 
 Cache* NewLRUCache(size_t capacity) {
-  return new ShardedLRUCache(capacity);
+  return new leveldb::ShardedLRUCache(capacity);
 }
 
 }  // namespace leveldb

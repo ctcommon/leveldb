@@ -39,6 +39,7 @@ bool RegisterTest(const char* base, const char* name, void (*func)()) {
 
 int RunAllTests() {
   const char* matcher = getenv("LEVELDB_TESTS");
+  printf("Command processor: %s\n",matcher);
 
   int num = 0;
   if (tests != nullptr) {
